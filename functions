@@ -1,0 +1,21 @@
+
+lock() {
+	local lock="/run/`basename $1`.lock"
+	exec 9>$lock
+	if ! flock -n 9; then exit 1; fi
+}
+
+log() {
+	logger -p user.$1 -t "planter[$$]" -- "$2"
+}
+
+show() {
+	/opt/planter/display/blinkt.php "$1"
+}
+
+in_list() {
+	for v in $2; do
+		[ "$1" != "$v" ] || return 0
+	done
+	return 1
+}

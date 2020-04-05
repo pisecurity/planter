@@ -1,0 +1,11 @@
+[Unit]
+BindsTo=%i.device
+After=%i.device
+
+[Service]
+Type=oneshot
+TimeoutStartSec=0
+Environment=DEVNAME=%I
+ExecStart=/opt/planter/events/plug.sh
+ExecStop=/opt/planter/events/unplug.sh
+RemainAfterExit=yes
