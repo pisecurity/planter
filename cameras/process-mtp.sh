@@ -1,8 +1,8 @@
 #!/bin/bash
 . /opt/planter/functions
 
-TARGET=`/opt/fajneit/planter-drives/utils/get-target-directory.sh`
-DEVICES=`/opt/fajneit/camera-utils/utils/list-mtp-devices.sh`
+TARGET=`/opt/pisecurity/planter-drives/utils/get-target-directory.sh`
+DEVICES=`/opt/pisecurity/camera-utils/utils/list-mtp-devices.sh`
 for DEVICE in $DEVICES; do
 	camera="${DEVICE%:*}"
 	bus="${DEVICE##*:}"

@@ -3,7 +3,7 @@
 
 DEVICE=$1
 UUID=$2
-TARGET=`/opt/fajneit/planter-drives/utils/get-target-directory.sh`
+TARGET=`/opt/pisecurity/planter-drives/utils/get-target-directory.sh`
 
 
 log info "plugged $UUID (syncing to $TARGET)"

@@ -9,7 +9,7 @@ DEVICE=/$DEVNAME
 lock "planter-usb-$BASE"
 show "progress"
 
-tmp=`/opt/fajneit/camera-utils/utils/get-usb-device-uuid.sh $DEVICE /run/planter-$BASE.info`
+tmp=`/opt/pisecurity/camera-utils/utils/get-usb-device-uuid.sh $DEVICE /run/planter-$BASE.info`
 
 if [ "$tmp" = "" ]; then
 	log info "$DEVICE does not contain a filesystem or disklabel, or cannot be identified"
@@ -35,7 +35,7 @@ else
 		if ! grep -q /media/$UUID /proc/mounts; then
 
 			log info "mounting $DEVICE at /media/$UUID"
-			ret=`/opt/fajneit/planter-drives/utils/add-drive.sh $DEVICE $fstype $UUID /media/$UUID`
+			ret=`/opt/pisecurity/planter-drives/utils/add-drive.sh $DEVICE $fstype $UUID /media/$UUID`
 
 			if [ "$ret" != "error" ]; then
 				/opt/planter/usb/dispatch.sh $DEVICE $UUID $ret

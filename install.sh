@@ -1,26 +1,16 @@
 #!/bin/sh
 
-mkdir -p /media/fallback
+mkdir -p /media/fallback /opt/pisecurity
 
 if [ -x /opt/farm/scripts/setup/extension.sh ]; then
 	/opt/farm/scripts/setup/extension.sh sf-php
 fi
 
-if [ ! -d /opt/fajneit/blinkt-persistence ]; then
-	git clone https://github.com/fajneit/blinkt-persistence /opt/fajneit/blinkt-persistence
-fi
+/opt/planter/git/clone.sh blinkt-persistence
+/opt/planter/git/clone.sh planter-drives
+/opt/planter/git/clone.sh camera-utils
+/opt/planter/git/clone.sh opencv-manager
 
-if [ ! -d /opt/fajneit/planter-drives ]; then
-	git clone https://github.com/fajneit/planter-drives /opt/fajneit/planter-drives
-fi
-
-if [ ! -d /opt/fajneit/camera-utils ]; then
-	git clone https://github.com/fajneit/camera-utils /opt/fajneit/camera-utils
-fi
-
-echo "downloading drive lists"
-/opt/fajneit/planter-drives/setup.sh
-/opt/fajneit/camera-utils/setup.sh
 
 echo "copying usbmount templates"
 cp -af /opt/planter/templates/usbmount@.service /etc/systemd/system

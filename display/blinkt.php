@@ -7,7 +7,7 @@ $brightness = 1;
 
 
 $cache = "/run/blinkt.json";
-$cmd = "/opt/fajneit/blinkt-persistence/v1/set-pixel-rgb.py";
+$cmd = "/opt/pisecurity/blinkt-persistence/v1/set-pixel-rgb.py";
 
 $colors = array (
 	"off"    => array(  0,   0,   0),

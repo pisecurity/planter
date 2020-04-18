@@ -1,14 +1,14 @@
 #!/bin/sh
 . /opt/planter/functions
 
-TARGET=`/opt/fajneit/planter-drives/utils/get-target-directory.sh`
-PORTS=`/opt/fajneit/camera-utils/utils/list-ptp-ports.sh`
+TARGET=`/opt/pisecurity/planter-drives/utils/get-target-directory.sh`
+PORTS=`/opt/pisecurity/camera-utils/utils/list-ptp-ports.sh`
 for PORT in $PORTS; do
 
 	FILE=/run/`echo $PORT |tr ':,' '-'`.ptp
 	if [ -f $FILE ]; then continue; fi   # PTP port numbers are reused by system only after reboot or full bus cleanup, so it seems safe
 
-	camera=`/opt/fajneit/camera-utils/utils/get-ptp-device-name.sh $PORT $FILE`
+	camera=`/opt/pisecurity/camera-utils/utils/get-ptp-device-name.sh $PORT $FILE`
 	if [ "$camera" = "" ]; then continue; fi   # PTP bus error, resume next script run, $FILE was deleted
 
 	log info "plugged $camera (recognized as PTP storage)"
@@ -23,7 +23,7 @@ for PORT in $PORTS; do
 	log info "plugged $camera (downloading new files to $TARGET/$camera)"
 
 	cp $FILE $TARGET/$camera.info
-	/opt/fajneit/camera-utils/utils/sync-ptp-device.sh $PORT $TARGET/$camera.log
+	/opt/pisecurity/camera-utils/utils/sync-ptp-device.sh $PORT $TARGET/$camera.log
 	sync
 
 	if [ ! -s $TARGET/$camera.log ] || grep -q '^For debugging messages' $TARGET/$camera.log; then

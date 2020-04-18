@@ -2,7 +2,7 @@
 . /opt/planter/functions
 
 DEVICE=/$DEVNAME
-ret=`/opt/fajneit/planter-drives/utils/remove-drive.sh $DEVICE`
+ret=`/opt/pisecurity/planter-drives/utils/remove-drive.sh $DEVICE`
 
 case "$ret" in
 	ignore)
