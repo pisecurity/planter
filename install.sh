@@ -6,10 +6,12 @@ if [ -x /opt/farm/scripts/setup/extension.sh ]; then
 	/opt/farm/scripts/setup/extension.sh sf-php
 fi
 
+/opt/planter/git/clone.sh mc-black
 /opt/planter/git/clone.sh blinkt-persistence
 /opt/planter/git/clone.sh planter-drives
 /opt/planter/git/clone.sh camera-utils
 /opt/planter/git/clone.sh opencv-manager
+/opt/planter/git/clone.sh phpopencv-manager
 
 
 echo "copying usbmount templates"

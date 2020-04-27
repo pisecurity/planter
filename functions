@@ -10,7 +10,9 @@ log() {
 }
 
 show() {
-	/opt/planter/display/blinkt.php "$1"
+	if [ -f /usr/lib/python3/dist-packages/blinkt.py ]; then
+		/opt/planter/display/blinkt.php "$1"
+	fi
 }
 
 in_list() {
