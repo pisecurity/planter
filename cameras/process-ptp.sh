@@ -1,7 +1,6 @@
 #!/bin/sh
 . /opt/planter/functions
 
-TARGET=`/opt/pisecurity/planter-drives/utils/get-target-directory.sh`
 PORTS=`/opt/pisecurity/camera-utils/utils/list-ptp-ports.sh`
 for PORT in $PORTS; do
 
@@ -12,6 +11,7 @@ for PORT in $PORTS; do
 	if [ "$camera" = "" ]; then continue; fi   # PTP bus error, resume next script run, $FILE was deleted
 
 	log info "plugged $camera (recognized as PTP storage)"
+	TARGET=`/opt/pisecurity/planter-drives/utils/get-target-directory.sh`
 	if [ -f $TARGET/$camera.info ]; then continue; fi   # device already processed (at least started), resume next day
 
 	show "ptp_device_detected"

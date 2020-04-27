@@ -1,7 +1,6 @@
 #!/bin/bash
 . /opt/planter/functions
 
-TARGET=`/opt/pisecurity/planter-drives/utils/get-target-directory.sh`
 DEVICES=`/opt/pisecurity/camera-utils/utils/list-mtp-devices.sh`
 for DEVICE in $DEVICES; do
 	camera="${DEVICE%:*}"
@@ -11,6 +10,7 @@ for DEVICE in $DEVICES; do
 	if [ -f $FILE ]; then continue; fi   # MTP port numbers are reused by system only after reboot or full bus cleanup, so it seems safe
 
 	log info "plugged $camera (recognized as MTP storage)"
+	TARGET=`/opt/pisecurity/planter-drives/utils/get-target-directory.sh`
 	if [ -f $TARGET/$camera.info ]; then continue; fi   # device already processed (at least started), resume next day
 
 	show "mtp_device_detected"
