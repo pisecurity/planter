@@ -10,7 +10,7 @@ log() {
 }
 
 show() {
-	if [ -d /opt/pisecurity/blinkt-persistence ]; then
+	if [ -d /opt/pisecurity/blinkt-persistence ] && [ -f /usr/lib/python3/dist-packages/blinkt.py ]; then
 		/opt/planter/hardware/blinkt/handler.php "$1"
 	fi
 }
