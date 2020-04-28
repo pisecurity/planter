@@ -38,7 +38,7 @@ else
 			ret=`/opt/pisecurity/planter-drives/utils/add-drive.sh $DEVICE $fstype $UUID /media/$UUID`
 
 			if [ "$ret" != "error" ]; then
-				/opt/planter/usb/dispatch.sh $DEVICE $UUID $ret
+				/opt/planter/events/usb/dispatch.sh $DEVICE $UUID $ret
 			fi
 		fi
 	fi

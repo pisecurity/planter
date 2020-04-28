@@ -15,14 +15,14 @@ fi
 
 
 echo "copying usbmount templates"
-cp -af /opt/planter/templates/usbmount@.service /etc/systemd/system
-cp -af /opt/planter/templates/usbmount.rules /etc/udev/rules.d
+cp -af /opt/planter/events/templates/usbmount@.service /etc/systemd/system
+cp -af /opt/planter/events/templates/usbmount.rules /etc/udev/rules.d
 ln -sf /opt/planter/events/shutdown.sh /etc/network/if-down.d/shutdown-blinkt
 systemctl daemon-reload
 
-if ! grep -q /opt/planter/cameras/process.sh /etc/crontab; then
-	echo "setting up crontab entry for /opt/planter/cameras/process.sh"
-	echo "* * * * * root /opt/planter/cameras/process.sh" >>/etc/crontab
+if ! grep -q /opt/planter/events/cameras/process.sh /etc/crontab; then
+	echo "setting up crontab entry for /opt/planter/events/cameras/process.sh"
+	echo "* * * * * root /opt/planter/events/cameras/process.sh" >>/etc/crontab
 fi
 
 

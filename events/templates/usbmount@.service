@@ -6,6 +6,6 @@ After=%i.device
 Type=oneshot
 TimeoutStartSec=0
 Environment=DEVNAME=%I
-ExecStart=/opt/planter/events/plug.sh
-ExecStop=/opt/planter/events/unplug.sh
+ExecStart=/opt/planter/events/usb/plug.sh
+ExecStop=/opt/planter/events/usb/unplug.sh
 RemainAfterExit=yes

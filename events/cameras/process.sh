@@ -4,7 +4,7 @@
 lock "planter-cameras-cron"
 show "progress"
 
-/opt/planter/cameras/process-mtp.sh
-/opt/planter/cameras/process-ptp.sh
+/opt/planter/events/cameras/process-mtp.sh
+/opt/planter/events/cameras/process-ptp.sh
 
 show "ready"

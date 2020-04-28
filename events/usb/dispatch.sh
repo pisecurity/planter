@@ -30,7 +30,7 @@ case "$RET" in
 			# write protection switch); trigger "user_operation_error"
 			# event and abort planting otherwise
 			show "user_planting_started"
-			/opt/planter/usb/plant.sh "$DEVICE" "$UUID"
+			/opt/planter/events/usb/plant.sh "$DEVICE" "$UUID"
 		else
 			# in paid version, trigger checking used space (counting number of used
 			# sectors, not just nominal file size, to make sure that everything will
@@ -41,7 +41,7 @@ case "$RET" in
 			# just push a connect event to the next layer, which runs a single combined
 			# rsync for all connected logical partitions (way more efficient and stable)
 			show "user_rsync_started"
-			/opt/planter/usb/sync.sh "`basename $DEVICE`" "$UUID"
+			/opt/planter/events/usb/sync.sh "`basename $DEVICE`" "$UUID"
 		fi
 
 		show "user_operation_finished"
