@@ -12,6 +12,8 @@ log() {
 show() {
 	if [ -d /opt/pisecurity/blinkt-persistence ] && [ -f /usr/lib/python3/dist-packages/blinkt.py ]; then
 		/opt/planter/hardware/blinkt/handler.php "$1"
+	elif [ -d /opt/pisecurity/bakebit-nanohat-driver ] && [ -f /etc/friendlyelec-release ]; then
+		/opt/planter/hardware/nanohat/handler.php "$1"
 	fi
 }
 
