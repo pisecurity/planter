@@ -58,9 +58,7 @@ $text = $details[1];
 if ($line == -1)
 	execute("$clear");
 else {
-	if ($text == "ready")
-		execute("$clear");
-	else if ($text === false)
+	if ($text === false)
 		$text = "";
 	execute("$print $line \"$text\"");
 }
