@@ -1,6 +1,7 @@
 ## Legal disclaimer
 
-This repository contains the source code of Planter platform v2020 edition.
+This is a core repository for 3rd generation of Planter product, also known as Harry.
+You can visit its homepage for more details: https://payload.pl/harry/
 
 This software, as well as the hardware part, is meant to be used only by police officers, special agents,
 or other eligible entities. Its usage is always a subject to local legislation, and its user is solely
@@ -18,28 +19,28 @@ Planter recognizes connected USB devices, tries to auto-mount them and start:
 
 There are 4 types of devices:
 
-- evidence storage (copy destination, later called "target")
-- seized/captured drive (copy source)
+- target drive (copy destination)
+- user drive (copy source)
 - ignored drive
-- plant source storage (attachable drives with additional software/payload, not being part of Planter distribution; called "source")
+- source drive (attachable drives with additional software/payload, not being part of this repository)
 
-Evidence storage drive has to have created one of 3 directory schemes:
+The idea is very simple:
 
-- `.support/.files`
-- `.files/.data`
-- `files/data`
+1. If any source drive with valid payload is already connected, then connecting user drive will run this
+payload against newly connected drive (it will be mounted, and the mountpoint will be passed to the
+payload as argument).
 
-Otherwise, or if evidence storage is not connected, all data from seized drives are copied to
-`/media/fallback` fallback directory on local MicroSD card.
+2. If no source drive is connected, then connecting user drive will trigger copying its contents to
+subdirectory on target drive.
+
+Details regarding how individual drives are recognized, paths etc., can be found here:
+https://github.com/pisecurity/planter-drives
 
 ## Installing
 
 Run `install.sh` script as root.
 
-## Dependencies
-
-Planter requires Pimoroni Blinkt! device, and any Blinkt!-compatible version of Raspberry Pi. It is
-tested to work on Raspbian Jessie or Stretch.
+Depending on your hardware type, you may need to install display driver separately from this script.
 
 ## License
 
