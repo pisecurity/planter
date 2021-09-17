@@ -1,3 +1,11 @@
+# Deprecated
+
+Planter 3rd generation has been replaced with Drive Badger project:
+
+- [product page](https://drivebadger.com/)
+- [main repository](https://github.com/drivebadger/drivebadger)
+- [wiki](https://github.com/drivebadger/drivebadger/wiki)
+
 # Overview
 
 This is a core repository for 3rd generation of Planter product, also known as Harry.
